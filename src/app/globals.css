@@ -56,3 +56,9 @@ button {
 .feature-background {
   right: -700px;
 }
+
+.footer-text {
+  bottom: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
