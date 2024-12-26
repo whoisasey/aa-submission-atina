@@ -1,3 +1,7 @@
+"use client";
+
+import { FormEvent, useState } from "react";
+
 import Image from "next/image";
 import background1 from "@/assets/background.svg";
 import background2 from "@/assets/feature-background.svg";
@@ -11,7 +15,31 @@ import feature2 from "@/assets/features/feature-2.svg";
 import feature3 from "@/assets/features/feature-3.svg";
 import feature4 from "@/assets/features/feature-4.svg";
 
-export default function Home() {
+const Home = () => {
+  const [email, setEmail] = useState("");
+  const [result, setResult] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+
+    const disifyURL = `https://www.disify.com/api/email/${email}`;
+
+    try {
+      const response = await fetch(disifyURL);
+      if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+      }
+      const data = await response.json();
+      setResult(JSON.stringify(data, null, 2)); // Display the response data
+      console.log(result);
+
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (err: any) {
+      setError(err.message || "An error occurred.");
+      console.log(error);
+    }
+  };
   return (
     <div className="flex flex-col justify-center items-center relative mt-16 sm:mt-32 w-11/12 m-auto sm:w-auto">
       <div className="absolute background z-10">
@@ -24,12 +52,21 @@ export default function Home() {
           officia!
         </p>
         <div className="flex flex-col sm:flex-row w-full sm:w-4/5 justify-center">
-          <label htmlFor="">
-            <input type="text" className="border-2 p-3 w-full rounded" placeholder="Your email address..." />
-          </label>
-          <button type="submit" className="py-3 px-8 rounded mt-3 sm:mt-0 sm:ml-3 text-white uppercase font-bold">
-            Get Early Access
-          </button>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="email">
+              <input
+                type="email"
+                id="email"
+                className="border-2 p-3 w-full rounded"
+                placeholder="Your email address..."
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </label>
+            <button type="submit" className="py-3 px-8 rounded mt-3 sm:mt-0 sm:ml-3 text-white uppercase font-bold">
+              Get Early Access
+            </button>
+          </form>
         </div>
       </section>
       <section>
@@ -88,4 +125,6 @@ export default function Home() {
       </div>
     </div>
   );
-}
+};
+
+export default Home;
