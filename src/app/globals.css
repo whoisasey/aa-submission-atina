@@ -18,9 +18,13 @@
 
 body {
   color: var(--bodyColor);
-  background: var(--background);
-  max-width: 80%;
   margin: 0 auto;
+  width: 100%;
+
+  @media (min-width: 769px) {
+    width: 80%;
+    /* background: var(--background); */
+  }
 }
 
 h1,
@@ -33,13 +37,20 @@ h4 {
 
 header {
   padding: 1rem 0;
-  width: 85%;
+}
+
+header,
+footer,
+main {
+  width: 100%;
   margin: 0 auto;
+  @media (min-width: 769px) {
+    /* background: #fff; */
+    width: 85%;
+  }
 }
 
 main {
-  background: #fff;
-  width: 85%;
   margin: 0 auto;
   font-family: Roboto, Helvetica, sans-serif;
   overflow-x: hidden;
@@ -51,8 +62,14 @@ button {
 }
 
 .background {
-  right: -400px;
+  top: 0;
+  right: 0;
+  @media (min-width: 769px) {
+    top: -150px;
+    right: -450px;
+  }
 }
+
 .feature-background {
   right: -700px;
 }

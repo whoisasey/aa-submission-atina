@@ -13,11 +13,11 @@ import feature4 from "@/assets/features/feature-4.svg";
 
 export default function Home() {
   return (
-    <div className="flex flex-col justify-center items-center relative">
-      <div className="absolute -top-32 background z-0">
+    <div className="flex flex-col justify-center items-center relative mt-32">
+      <div className="absolute background z-10">
         <Image src={background1} alt="" />
       </div>
-      <section className="flex flex-col justify-center items-center w-1/2 text-center mx-auto mt-12 mb-20 z-10">
+      <section className="flex flex-col justify-center items-center w-3/5 lg:w-1/2 text-center mx-auto mt-12 mb-20 z-10">
         <h1 className="font-bold text-4xl">Startup Landing Page</h1>
         <p className="my-8">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos laudantium, error fugiat doloremque excepturi
@@ -33,7 +33,7 @@ export default function Home() {
         </div>
       </section>
       <section>
-        <div className="relative">
+        <div className="relative w-10/12 lg:w-auto m-auto">
           <div className="relative z-30 shadow-lg shadow-slate-300/50">
             <Image src={browser} alt="browser" />
           </div>
@@ -52,7 +52,7 @@ export default function Home() {
         </div>
       </section>
       <section>
-        <div className="grid grid-cols-2 gap-6 w-2/3 mx-auto my-8 mt-32 z-10 sticky">
+        <div className="grid grid-cols-2 gap-6 w-3/4 lg:w-2/3 mx-auto my-8 mt-32 z-10 sticky">
           <div className="flex flex-col justify-center items-center mx-auto my-8 text-center">
             <div className=" bg-white rounded-full shadow-slate-200/50 shadow-lg">
               <Image src={feature1} alt="feature" />
