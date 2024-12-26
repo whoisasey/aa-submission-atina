@@ -1,5 +1,9 @@
 import Image from "next/image";
 import browser from "@/assets/browser.svg";
+import bubble1 from "@/assets/bubbles/bubble-1.svg";
+import bubble2 from "@/assets/bubbles/bubble-2.svg";
+import bubble3 from "@/assets/bubbles/bubble-3.svg";
+import bubble4 from "@/assets/bubbles/bubble-4.svg";
 import feature1 from "@/assets/features/feature-1.svg";
 import feature2 from "@/assets/features/feature-2.svg";
 import feature3 from "@/assets/features/feature-3.svg";
@@ -20,8 +24,23 @@ export default function Home() {
         </label>
       </section>
       <section>
-        **other assets go here**
-        <Image src={browser} alt="browser" />
+        <div className=" browser relative">
+          <div className="relative z-30 shadow-lg shadow-slate-300/50">
+            <Image src={browser} alt="browser" />
+          </div>
+          <div className="absolute -left-8 top-20 z-50">
+            <Image src={bubble3} alt="bubble" />
+          </div>
+          <div className="absolute -top-8 -right-32 z-20">
+            <Image src={bubble2} alt="bubble" />
+          </div>
+          <div className="absolute -left-32 -bottom-24 z-20">
+            <Image src={bubble1} alt="bubble" />
+          </div>
+          <div className="absolute bottom-0 -right-16 z-50">
+            <Image src={bubble4} alt="bubble" />
+          </div>
+        </div>
       </section>
       <section>
         <div className="grid grid-cols-2 gap-6 w-2/3 mx-auto my-8">
