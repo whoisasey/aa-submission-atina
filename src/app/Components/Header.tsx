@@ -1,7 +1,12 @@
-import React from "react";
+import Image from "next/image";
+import logo from "@/assets/logo.svg";
 
 const Header = () => {
-  return <div>Header</div>;
+  return (
+    <header>
+      <Image src={logo} alt="Agency Analytics logo" />
+    </header>
+  );
 };
 
 export default Header;
