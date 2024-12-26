@@ -1,4 +1,6 @@
 import Image from "next/image";
+import background1 from "@/assets/background.svg";
+import background2 from "@/assets/feature-background.svg";
 import browser from "@/assets/browser.svg";
 import bubble1 from "@/assets/bubbles/bubble-1.svg";
 import bubble2 from "@/assets/bubbles/bubble-2.svg";
@@ -11,8 +13,11 @@ import feature4 from "@/assets/features/feature-4.svg";
 
 export default function Home() {
   return (
-    <div className="flex flex-col justify-center items-center">
-      <section className="flex flex-col justify-center items-center w-1/2 text-center mx-auto mt-12 mb-20">
+    <div className="flex flex-col justify-center items-center relative">
+      <div className="absolute -top-32 background z-0">
+        <Image src={background1} alt="" />
+      </div>
+      <section className="flex flex-col justify-center items-center w-1/2 text-center mx-auto mt-12 mb-20 z-10">
         <h1 className="font-bold text-4xl">Startup Landing Page</h1>
         <p className="my-8">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos laudantium, error fugiat doloremque excepturi
@@ -47,7 +52,7 @@ export default function Home() {
         </div>
       </section>
       <section>
-        <div className="grid grid-cols-2 gap-6 w-2/3 mx-auto my-8 mt-32">
+        <div className="grid grid-cols-2 gap-6 w-2/3 mx-auto my-8 mt-32 z-10 sticky">
           <div className="flex flex-col justify-center items-center mx-auto my-8 text-center">
             <div className=" bg-white rounded-full shadow-slate-200/50 shadow-lg">
               <Image src={feature1} alt="feature" />
@@ -78,6 +83,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <div className="absolute bottom-0 z-0 feature-background">
+        <Image src={background2} alt="" />
+      </div>
     </div>
   );
 }
