@@ -1,20 +1,22 @@
 import "./globals.css";
 
-import { Lato, Roboto } from "next/font/google";
-
+import Footer from "@/app/Components/Footer";
+import Header from "@/app/Components/Header";
 import type { Metadata } from "next";
 
-const robotoSans = Roboto({
-  weight: ["300", "400", "500"],
-  variable: "--font-roboto",
-  subsets: ["latin"],
-});
+// import { Lato, Roboto } from "next/font/google";
 
-const latoSans = Lato({
-  weight: ["300", "400"],
-  variable: "--font-lato",
-  subsets: ["latin"],
-});
+// const robotoSans = Roboto({
+//   weight: ["300", "400", "500"],
+//   variable: "--font-roboto",
+//   subsets: ["latin"],
+// });
+
+// const latoSans = Lato({
+//   weight: ["300", "400"],
+//   variable: "--font-lato",
+//   subsets: ["latin"],
+// });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,7 +30,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${robotoSans.variable}  ${latoSans.variable} antialiased`}>{children}</body>
+      <body
+      // className={`${robotoSans.variable}  ${latoSans.variable} antialiased`}
+      >
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
