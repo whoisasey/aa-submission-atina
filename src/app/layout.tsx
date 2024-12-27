@@ -36,7 +36,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${robotoSans.variable}  ${latoSans.variable} antialiased`}>
         {/* <Header /> */}
-        <main>
+        <main className="mb-20">
           {/* i originally had Header as its own component, but due to the pos abs of the background blob, moved it here and removed the header element */}
           <div className="header z-10 relative">
             <Link href={"/"} className="z-10 absolute">
