@@ -15,10 +15,56 @@ import feature3 from "@/assets/features/feature-3.svg";
 import feature4 from "@/assets/features/feature-4.svg";
 import { useRouter } from "next/navigation";
 
+const BubbleImage = ({ src, className }: { src: string; className: string }) => (
+  <div className={`absolute ${className}`}>
+    <Image src={src} alt="bubble" />
+  </div>
+);
+
+const FeatureCard = ({ src, title, description }: { src: string; title: string; description: string }) => (
+  <div className="flex flex-col justify-center items-center mx-auto my-8 text-center">
+    <div className="bg-white rounded-full shadow-slate-200/50 shadow-lg">
+      <Image src={src} alt={title} />
+    </div>
+    <h4 className="font-bold text-xl my-3">{title}</h4>
+    <p>{description}</p>
+  </div>
+);
+
 const Home = () => {
   const [email, setEmail] = useState("");
 
   const router = useRouter();
+
+  const bubbles = [
+    { src: bubble3, className: "left-20 sm:-left-8 -top-4 sm:top-20 z-50" },
+    { src: bubble2, className: "-top-8 -right-20 sm:-right-32 w-5/12 sm:w-auto z-20" },
+    { src: bubble1, className: "-left-16 sm:-left-32 -bottom-16 sm:-bottom-24 w-1/2 sm:w-auto z-20" },
+    { src: bubble4, className: "-bottom-4 sm:bottom-0 -right-8 sm:-right-16 w-1/4 sm:w-auto z-50" },
+  ];
+
+  const features = [
+    {
+      src: feature1,
+      title: "Discover",
+      description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, quas.",
+    },
+    {
+      src: feature2,
+      title: "Discover",
+      description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, quas.",
+    },
+    {
+      src: feature3,
+      title: "Discover",
+      description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, quas.",
+    },
+    {
+      src: feature4,
+      title: "Discover",
+      description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, quas.",
+    },
+  ];
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -47,8 +93,10 @@ const Home = () => {
       console.log(err.message);
     }
   };
+
   return (
     <div className="flex flex-col justify-center items-center relative lg:mt-16 w-11/12 m-auto sm:w-auto">
+      {/* Header/Hero Section */}
       <section className="flex flex-col justify-center items-center md:w-4/5 lg:w-1/2 text-center mx-auto mt-12 mb-20 z-10">
         <h1 className="font-bold text-5xl">Startup Landing Page</h1>
         <p className="my-8">
@@ -71,6 +119,8 @@ const Home = () => {
           </button>
         </form>
       </section>
+
+      {/* Bubble Section */}
       <section className="w-auto md:w-10/12 lg:w-auto m-auto">
         <div className="relative w-full">
           <div className="relative z-30 shadow-lg shadow-slate-300/50">
@@ -79,51 +129,22 @@ const Home = () => {
           <div className="absolute left-20 sm:-left-8 -top-4 sm:top-20 z-50">
             <Image src={bubble3} alt="bubble" />
           </div>
-          <div className="absolute -top-8 -right-20 sm:-right-32 w-5/12 sm:w-auto z-20">
-            <Image src={bubble2} alt="bubble" />
-          </div>
-          <div className="absolute -left-16 sm:-left-32 -bottom-16 sm:-bottom-24 w-1/2 sm:w-auto z-20">
-            <Image src={bubble1} alt="bubble" />
-          </div>
-          <div className="absolute -bottom-4 sm:bottom-0 -right-8 sm:-right-16 w-1/4 sm:w-auto z-50">
-            <Image src={bubble4} alt="bubble" />
-          </div>
+          {bubbles.map((bubble, idx) => (
+            <BubbleImage key={idx} src={bubble.src} className={bubble.className} />
+          ))}
         </div>
       </section>
+
+      {/* Feature Section */}
       <section>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-3/4 lg:w-2/3 mx-auto my-8 mt-32 z-10 sticky">
-          <div className="flex flex-col justify-center items-center mx-auto my-8 text-center">
-            <div className=" bg-white rounded-full shadow-slate-200/50 shadow-lg">
-              <Image src={feature1} alt="feature" />
-            </div>
-            <h4 className="font-bold text-xl my-3">Discover</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, quas.</p>
-          </div>
-          <div className="flex flex-col justify-center items-center mx-auto my-8 text-center ">
-            <div className=" bg-white rounded-full shadow-slate-200/50 shadow-lg">
-              <Image src={feature2} alt="feature" />
-            </div>
-            <h4 className="font-bold text-xl my-3">Discover</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, quas.</p>
-          </div>
-          <div className="flex flex-col justify-center items-center mx-auto my-8 text-center">
-            <div className=" bg-white rounded-full shadow-slate-200/50 shadow-lg">
-              <Image src={feature3} alt="feature" />
-            </div>
-            <h4 className="font-bold text-xl my-3">Discover</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, quas.</p>
-          </div>
-          <div className="flex flex-col justify-center items-center mx-auto my-8 text-center ">
-            <div className="oval w-full flex justify-center items-center">
-              <div className=" bg-white rounded-full shadow-slate-200/50 shadow-lg w-fit">
-                <Image src={feature4} alt="feature" />
-              </div>
-            </div>
-            <h4 className="font-bold text-xl my-3">Discover</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, quas.</p>
-          </div>
+          {features.map((feature, index) => (
+            <FeatureCard key={index} src={feature.src} title={feature.title} description={feature.description} />
+          ))}
         </div>
       </section>
+
+      {/* feature background */}
       <div className="absolute bottom-0 z-0 feature-background">
         <Image src={background2} alt="" />
       </div>
