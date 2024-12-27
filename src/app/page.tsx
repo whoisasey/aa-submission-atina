@@ -119,9 +119,11 @@ const Home = () => {
             <h4 className="font-bold text-xl my-3">Discover</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, quas.</p>
           </div>
-          <div className="flex flex-col justify-center items-center mx-auto my-8 text-center">
-            <div className=" bg-white rounded-full shadow-slate-200/50 shadow-lg">
-              <Image src={feature4} alt="feature" />
+          <div className="flex flex-col justify-center items-center mx-auto my-8 text-center ">
+            <div className="oval w-full flex justify-center items-center">
+              <div className=" bg-white rounded-full shadow-slate-200/50 shadow-lg w-fit">
+                <Image src={feature4} alt="feature" />
+              </div>
             </div>
             <h4 className="font-bold text-xl my-3">Discover</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, quas.</p>
