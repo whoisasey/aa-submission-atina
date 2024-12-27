@@ -3,14 +3,6 @@
 @tailwind utilities;
 
 // TODO: change 769 -> 768px
-// TODO: update variables
-
-:root {
-  --background: rgb(246 248 250);
-  --bodyColor: rgb(91 111 130);
-  --headerColor: rgb(32 43 54);
-  --button: rgb(33 124 238);
-}
 
 // variables
 $lg: 1024px;
@@ -19,15 +11,14 @@ $sm: 540px;
 $xs: 480px;
 $xxs: 375px;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+$white: rgb(246 248 250);
+$grey: #f6f8fa;
+$bodyTextColor: rgb(91 111 130);
+$headerColor: rgb(32 43 54);
+$button: rgb(33 124 238);
 
 body {
-  color: var(--bodyColor);
+  color: $bodyTextColor;
   margin: 0 auto;
   width: 100%;
 
@@ -41,7 +32,7 @@ h2,
 h3,
 h4 {
   font-family: Lato, sans-serif;
-  color: var(--headerColor);
+  color: $headerColor;
 }
 
 header,
@@ -67,6 +58,8 @@ main {
 main {
   font-family: Roboto, Helvetica, sans-serif;
   overflow-x: hidden;
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(to right, white, lightgrey) 1;
 }
 
 button {
@@ -109,4 +102,13 @@ button {
   bottom: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+footer {
+  background-image: url("../assets/footer.svg");
+  background-repeat: no-repeat;
+
+  @media (min-width: $md) {
+    background-position: center;
+  }
 }
