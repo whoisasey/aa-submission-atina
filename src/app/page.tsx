@@ -18,8 +18,7 @@ import { useRouter } from "next/navigation";
 
 const Home = () => {
   const [email, setEmail] = useState("");
-  // const [result, setResult] = useState<string | null>(null);
-  // const [error, setError] = useState<string | null>(null);
+
   const router = useRouter();
 
   const handleSubmit = async (e: FormEvent) => {
@@ -76,13 +75,6 @@ const Home = () => {
               Get Early Access
             </button>
           </form>
-          {/* {error && <p style={{ color: "red" }}>{error}</p>}
-          {result && (
-            <div>
-              <h3>Result:</h3>
-              <pre>{result}</pre>
-            </div>
-          )} */}
         </div>
       </section>
       <section>
