@@ -31,8 +31,7 @@ const Home = () => {
         throw new Error(`Error: ${response.statusText}`);
       }
       const data = await response.json();
-      setResult(JSON.stringify(data, null, 2)); // Display the response data
-      console.log(result);
+      setResult(JSON.stringify(data, null, 2));
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
@@ -67,6 +66,13 @@ const Home = () => {
               Get Early Access
             </button>
           </form>
+          {error && <p style={{ color: "red" }}>{error}</p>}
+          {result && (
+            <div>
+              <h3>Result:</h3>
+              <pre>{result}</pre>
+            </div>
+          )}
         </div>
       </section>
       <section>
