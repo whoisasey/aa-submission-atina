@@ -1,4 +1,4 @@
-import "./globals.css";
+import "./globals.scss";
 
 import { Lato, Roboto } from "next/font/google";
 
