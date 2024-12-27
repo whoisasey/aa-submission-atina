@@ -20,6 +20,20 @@ const Home = () => {
 
   const router = useRouter();
 
+  // components for bubble section
+  const BubbleImage = ({ src, className }: { src: string; className: string }) => (
+    <div className={`absolute ${className}`}>
+      <Image src={src} alt="bubble" />
+    </div>
+  );
+
+  const bubbles = [
+    { src: bubble3, className: "left-20 sm:-left-8 -top-4 sm:top-20 z-50" },
+    { src: bubble2, className: "-top-8 -right-20 sm:-right-32 w-5/12 sm:w-auto z-20" },
+    { src: bubble1, className: "-left-16 sm:-left-32 -bottom-16 sm:-bottom-24 w-1/2 sm:w-auto z-20" },
+    { src: bubble4, className: "-bottom-4 sm:bottom-0 -right-8 sm:-right-16 w-1/4 sm:w-auto z-50" },
+  ];
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
@@ -49,6 +63,7 @@ const Home = () => {
   };
   return (
     <div className="flex flex-col justify-center items-center relative lg:mt-16 w-11/12 m-auto sm:w-auto">
+      {/* Header/Hero Section */}
       <section className="flex flex-col justify-center items-center md:w-4/5 lg:w-1/2 text-center mx-auto mt-12 mb-20 z-10">
         <h1 className="font-bold text-5xl">Startup Landing Page</h1>
         <p className="my-8">
@@ -71,6 +86,8 @@ const Home = () => {
           </button>
         </form>
       </section>
+
+      {/* Bubble Section */}
       <section className="w-auto md:w-10/12 lg:w-auto m-auto">
         <div className="relative w-full">
           <div className="relative z-30 shadow-lg shadow-slate-300/50">
@@ -79,17 +96,13 @@ const Home = () => {
           <div className="absolute left-20 sm:-left-8 -top-4 sm:top-20 z-50">
             <Image src={bubble3} alt="bubble" />
           </div>
-          <div className="absolute -top-8 -right-20 sm:-right-32 w-5/12 sm:w-auto z-20">
-            <Image src={bubble2} alt="bubble" />
-          </div>
-          <div className="absolute -left-16 sm:-left-32 -bottom-16 sm:-bottom-24 w-1/2 sm:w-auto z-20">
-            <Image src={bubble1} alt="bubble" />
-          </div>
-          <div className="absolute -bottom-4 sm:bottom-0 -right-8 sm:-right-16 w-1/4 sm:w-auto z-50">
-            <Image src={bubble4} alt="bubble" />
-          </div>
+          {bubbles.map((bubble, idx) => (
+            <BubbleImage key={idx} src={bubble.src} className={bubble.className} />
+          ))}
         </div>
       </section>
+
+      {/* Feature Section */}
       <section>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-3/4 lg:w-2/3 mx-auto my-8 mt-32 z-10 sticky">
           <div className="flex flex-col justify-center items-center mx-auto my-8 text-center">
@@ -124,6 +137,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* feature background */}
       <div className="absolute bottom-0 z-0 feature-background">
         <Image src={background2} alt="" />
       </div>
