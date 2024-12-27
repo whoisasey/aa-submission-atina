@@ -16,6 +16,8 @@
 $lg: 1024px;
 $md: 769px;
 $sm: 540px;
+$xs: 480px;
+$xxs: 375px;
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -29,9 +31,8 @@ body {
   margin: 0 auto;
   width: 100%;
 
-  @media (min-width: $md) {
+  @media (min-width: $lg) {
     width: 80%;
-    /* background: var(--background); */
   }
 }
 
@@ -45,9 +46,9 @@ h4 {
 
 header,
 .header {
-  padding: 2rem;
+  padding: 1rem;
 
-  @media (min-width: $md) {
+  @media (min-width: $lg) {
     padding: 1rem 0;
   }
 }
@@ -58,7 +59,7 @@ footer,
 main {
   width: auto;
   margin: 0 auto;
-  @media (min-width: $md) {
+  @media (min-width: $lg) {
     width: 85%;
   }
 }
@@ -77,16 +78,21 @@ button {
   // based on the size of the image when rendered. i was noticing that when trying to change the position, the size was changing
   width: 1480px;
   height: 650px;
+  top: 0;
+  right: -330%;
 
-  top: -9%;
-  right: -300%;
+  @media (min-width: $xxs) {
+    top: -10%;
+    right: -260%;
+  }
+
   @media (min-width: $sm) {
-    top: -18%;
-    right: -105%;
+    top: -15%;
+    right: -110%;
   }
 
   @media (min-width: $md) {
-    right: -30%;
+    right: -50%;
   }
 }
 

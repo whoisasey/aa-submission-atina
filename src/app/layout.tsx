@@ -7,6 +7,7 @@ import Footer from "@/app/Components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import background1 from "@/assets/background.svg";
 import logo from "@/assets/logo.svg";
 
 const robotoSans = Roboto({
@@ -38,9 +39,13 @@ export default function RootLayout({
         <main>
           {/* i originally had Header as its own component, but due to the pos abs of the background blob, moved it here and removed the header element */}
           <div className="header z-10 relative">
-            <Link href={"/"}>
+            <Link href={"/"} className="z-10 absolute">
               <Image src={logo} alt="Agency Analytics logo" />
             </Link>
+
+            <div className="absolute background">
+              <Image src={background1} alt="" />
+            </div>
           </div>
           {children}
         </main>

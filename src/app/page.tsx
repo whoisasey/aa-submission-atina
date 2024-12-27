@@ -3,7 +3,6 @@
 import { FormEvent, useState } from "react";
 
 import Image from "next/image";
-import background1 from "@/assets/background.svg";
 import background2 from "@/assets/feature-background.svg";
 import browser from "@/assets/browser.svg";
 import bubble1 from "@/assets/bubbles/bubble-1.svg";
@@ -49,22 +48,19 @@ const Home = () => {
     }
   };
   return (
-    <div className="flex flex-col justify-center items-center relative mt-16 sm:mt-32 w-11/12 m-auto sm:w-auto">
-      <div className="absolute background">
-        <Image src={background1} alt="" />
-      </div>
+    <div className="flex flex-col justify-center items-center relative lg:mt-16 w-11/12 m-auto sm:w-auto">
       <section className="flex flex-col justify-center items-center md:w-4/5 lg:w-1/2 text-center mx-auto mt-12 mb-20 z-10">
-        <h1 className="font-bold text-4xl">Startup Landing Page</h1>
+        <h1 className="font-bold text-5xl">Startup Landing Page</h1>
         <p className="my-8">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos laudantium, error fugiat doloremque excepturi
           officia!
         </p>
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row w-full md:w-4/5 justify-center">
+        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row w-full justify-center">
           <label htmlFor="email">
             <input
               type="email"
               id="email"
-              className="border-2 p-3 w-full rounded"
+              className="border-2 p-3 w-full rounded sm:w-80"
               placeholder="Your email address..."
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -75,8 +71,8 @@ const Home = () => {
           </button>
         </form>
       </section>
-      <section>
-        <div className="relative w-11/12 sm:w-10/12 lg:w-auto m-auto">
+      <section className="w-auto md:w-10/12 lg:w-auto m-auto">
+        <div className="relative w-full">
           <div className="relative z-30 shadow-lg shadow-slate-300/50">
             <Image src={browser} alt="browser" />
           </div>
