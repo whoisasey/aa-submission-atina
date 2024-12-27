@@ -14,11 +14,12 @@ import feature1 from "@/assets/features/feature-1.svg";
 import feature2 from "@/assets/features/feature-2.svg";
 import feature3 from "@/assets/features/feature-3.svg";
 import feature4 from "@/assets/features/feature-4.svg";
+import { useRouter } from "next/navigation";
 
 const Home = () => {
   const [email, setEmail] = useState("");
-  const [result, setResult] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
+
+  const router = useRouter();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -31,12 +32,20 @@ const Home = () => {
         throw new Error(`Error: ${response.statusText}`);
       }
       const data = await response.json();
-      setResult(JSON.stringify(data, null, 2));
+
+      // if email is disposable and invalid
+      if (data.disposable === true) {
+        alert(`REQUEST FAILED: ${email} is invalid!`);
+      }
+
+      // if email is not disposable and valid
+      if (data.disposable === false) {
+        router.push("/success");
+      }
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
-      setError(err.message || "An error occurred.");
-      console.log(error);
+      console.log(err.message);
     }
   };
   return (
@@ -66,13 +75,6 @@ const Home = () => {
               Get Early Access
             </button>
           </form>
-          {error && <p style={{ color: "red" }}>{error}</p>}
-          {result && (
-            <div>
-              <h3>Result:</h3>
-              <pre>{result}</pre>
-            </div>
-          )}
         </div>
       </section>
       <section>
