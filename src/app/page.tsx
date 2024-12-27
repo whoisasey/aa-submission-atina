@@ -17,8 +17,8 @@ import feature4 from "@/assets/features/feature-4.svg";
 
 const Home = () => {
   const [email, setEmail] = useState("");
-  const [result, setResult] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  // const [result, setResult] = useState<string | null>(null);
+  // const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -31,12 +31,21 @@ const Home = () => {
         throw new Error(`Error: ${response.statusText}`);
       }
       const data = await response.json();
-      setResult(JSON.stringify(data, null, 2));
+
+      // if data.disposable == true
+      if (data.disposable === true) {
+        alert(`REQUEST FAILED: ${email} is invalid!`);
+      }
+      if (data.disposable === false) {
+        return;
+      }
+
+      // if data.disposable == false
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
-      setError(err.message || "An error occurred.");
-      console.log(error);
+      // setError(err.message || "An error occurred.");
+      console.log(err.message);
     }
   };
   return (
@@ -66,13 +75,13 @@ const Home = () => {
               Get Early Access
             </button>
           </form>
-          {error && <p style={{ color: "red" }}>{error}</p>}
+          {/* {error && <p style={{ color: "red" }}>{error}</p>}
           {result && (
             <div>
               <h3>Result:</h3>
               <pre>{result}</pre>
             </div>
-          )}
+          )} */}
         </div>
       </section>
       <section>
