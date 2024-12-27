@@ -14,11 +14,13 @@ import feature1 from "@/assets/features/feature-1.svg";
 import feature2 from "@/assets/features/feature-2.svg";
 import feature3 from "@/assets/features/feature-3.svg";
 import feature4 from "@/assets/features/feature-4.svg";
+import { useRouter } from "next/navigation";
 
 const Home = () => {
   const [email, setEmail] = useState("");
   // const [result, setResult] = useState<string | null>(null);
   // const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -32,19 +34,18 @@ const Home = () => {
       }
       const data = await response.json();
 
-      // if data.disposable == true
+      // if email is disposable and invalid
       if (data.disposable === true) {
         alert(`REQUEST FAILED: ${email} is invalid!`);
       }
-      if (data.disposable === false) {
-        return;
-      }
 
-      // if data.disposable == false
+      // if email is not disposable and valid
+      if (data.disposable === false) {
+        router.push("/success");
+      }
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
-      // setError(err.message || "An error occurred.");
       console.log(err.message);
     }
   };
