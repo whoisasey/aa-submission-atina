@@ -2,12 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+// TODO: change 769 -> 768px
+// TODO: update variables
+
 :root {
   --background: rgb(246 248 250);
   --bodyColor: rgb(91 111 130);
   --headerColor: rgb(32 43 54);
   --button: rgb(33 124 238);
 }
+
+// variables
+$lg: 1024px;
+$md: 769px;
+$sm: 540px;
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -21,7 +29,7 @@ body {
   margin: 0 auto;
   width: 100%;
 
-  @media (min-width: 769px) {
+  @media (min-width: $md) {
     width: 80%;
     /* background: var(--background); */
   }
@@ -35,17 +43,22 @@ h4 {
   color: var(--headerColor);
 }
 
-header {
-  padding: 1rem 0;
+header,
+.header {
+  padding: 2rem;
+
+  @media (min-width: $md) {
+    padding: 1rem 0;
+  }
 }
 
 header,
+.header,
 footer,
 main {
   width: auto;
   margin: 0 auto;
-  @media (min-width: 769px) {
-    /* background: #fff; */
+  @media (min-width: $md) {
     width: 85%;
   }
 }
@@ -61,10 +74,19 @@ button {
 }
 
 .background {
-  /* come back to this */
-  @media (min-width: 769px) {
-    top: -150px;
-    right: -450px;
+  // based on the size of the image when rendered. i was noticing that when trying to change the position, the size was changing
+  width: 1480px;
+  height: 650px;
+
+  top: -9%;
+  right: -300%;
+  @media (min-width: $sm) {
+    top: -18%;
+    right: -105%;
+  }
+
+  @media (min-width: $md) {
+    right: -30%;
   }
 }
 
