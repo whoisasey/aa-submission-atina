@@ -2,11 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-// TODO: change 769 -> 768px
-
 // variables
 $lg: 1024px;
-$md: 769px;
+$md: 768px;
 $sm: 540px;
 $xs: 480px;
 $xxs: 375px;
@@ -21,9 +19,20 @@ body {
   color: $bodyTextColor;
   margin: 0 auto;
   width: 100%;
+  background: $grey;
 
   @media (min-width: $lg) {
     width: 80%;
+  }
+
+  > div,
+  .header {
+    width: auto;
+    margin: 0 auto;
+    @media (min-width: $lg) {
+      width: 85%;
+    }
+    // border: 1px solid blue;
   }
 }
 
@@ -35,7 +44,6 @@ h4 {
   color: $headerColor;
 }
 
-header,
 .header {
   padding: 1rem;
 
@@ -44,22 +52,11 @@ header,
   }
 }
 
-header,
-.header,
-footer,
-main {
-  width: auto;
-  margin: 0 auto;
-  @media (min-width: $lg) {
-    width: 85%;
-  }
-}
-
 main {
   font-family: Roboto, Helvetica, sans-serif;
   overflow-x: hidden;
   border-bottom: 1px solid transparent;
-  border-image: linear-gradient(to right, white, lightgrey) 1;
+  border-image: linear-gradient(to right, white, lightgrey, white) 1;
 }
 
 button {
@@ -95,6 +92,8 @@ button {
 }
 
 .oval {
+  width: 100%;
+  height: 80px;
   background-color: rgba(#fff, 0.7);
   border-radius: 50%;
 }

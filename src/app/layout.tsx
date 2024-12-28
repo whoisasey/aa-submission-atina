@@ -35,21 +35,23 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${robotoSans.variable}  ${latoSans.variable} antialiased`}>
-        {/* <Header /> */}
-        <main className="mb-20">
-          {/* i originally had Header as its own component, but due to the pos abs of the background blob, moved it here and removed the header element */}
-          <div className="header z-10 relative">
-            <Link href={"/"} className="z-10 absolute">
-              <Image src={logo} alt="Agency Analytics logo" />
-            </Link>
-
-            <div className="absolute background">
-              <Image src={background1} alt="" />
+        <div className="md:shadow-slate-200/50 md:shadow-xl bg-white">
+          <main className="mb-20">
+            {/* i originally had Header as its own component, sister to main el, but due to the pos abs of the background blob, moved it here */}
+            <div className="header z-10 relative">
+              <nav>
+                <Link href={"/"} className="z-10 absolute">
+                  <Image src={logo} alt="Agency Analytics logo" />
+                </Link>
+                <div className="absolute background">
+                  <Image src={background1} alt="" />
+                </div>
+              </nav>
             </div>
-          </div>
-          {children}
-        </main>
-        <Footer />
+            {children}
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
