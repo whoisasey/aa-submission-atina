@@ -21,10 +21,22 @@ const BubbleImage = ({ src, className }: { src: string; className: string }) => 
   </div>
 );
 
-const FeatureCard = ({ src, title, description }: { src: string; title: string; description: string }) => (
-  <div className="flex flex-col justify-center items-center mx-auto my-8 text-center">
-    <div className="bg-white rounded-full shadow-slate-200/50 shadow-lg">
-      <Image src={src} alt={title} />
+const FeatureCard = ({
+  src,
+  title,
+  description,
+  className,
+}: {
+  src: string;
+  title: string;
+  description: string;
+  className?: string;
+}) => (
+  <div className={`flex flex-col justify-center items-center mx-auto my-8 text-center`}>
+    <div className={`${className} flex flex-col justify-center items-center mx-auto`}>
+      <div className="bg-white rounded-full shadow-slate-200/50 shadow-xl w-fit">
+        <Image src={src} alt={title} />
+      </div>
     </div>
     <h4 className="font-bold text-xl my-3">{title}</h4>
     <p>{description}</p>
@@ -123,7 +135,7 @@ const Home = () => {
       {/* Bubble Section */}
       <section className="w-auto md:w-10/12 lg:w-auto m-auto">
         <div className="relative w-full">
-          <div className="relative z-30 shadow-lg shadow-slate-300/50">
+          <div className="relative z-30 shadow-xl shadow-slate-300/50">
             <Image src={browser} alt="browser" />
           </div>
           <div className="absolute left-20 sm:-left-8 -top-4 sm:top-20 z-50">
@@ -138,8 +150,14 @@ const Home = () => {
       {/* Feature Section */}
       <section>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-3/4 lg:w-2/3 mx-auto my-8 mt-32 z-10 sticky">
-          {features.map((feature, index) => (
-            <FeatureCard key={index} src={feature.src} title={feature.title} description={feature.description} />
+          {features.map((feature, idx) => (
+            <FeatureCard
+              key={idx}
+              src={feature.src}
+              title={feature.title}
+              description={feature.description}
+              className={idx === 3 ? "oval" : ""}
+            />
           ))}
         </div>
       </section>
