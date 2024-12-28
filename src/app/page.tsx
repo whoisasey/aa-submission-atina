@@ -133,7 +133,7 @@ const Home = () => {
       </section>
 
       {/* Bubble Section */}
-      <section className="w-auto md:w-10/12 lg:w-auto m-auto">
+      <section className="w-11/12  md:w-10/12 lg:w-auto m-auto">
         <div className="relative w-full">
           <div className="relative z-30 shadow-xl shadow-slate-300/50">
             <Image src={browser} alt="browser" />
