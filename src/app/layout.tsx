@@ -36,8 +36,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${robotoSans.variable}  ${latoSans.variable} antialiased`}>
         <div className="md:shadow-slate-200/50 md:shadow-xl bg-white">
+          {/* i originally had <Header/> as its own component, sister to <main>, but due to the pos abs of the background blob, i removed the Header and created a div with class of header, since semantically <header> wouldn't go inside <main> .. not sure if this is semantically correct either*/}
           <main className="mb-20">
-            {/* i originally had Header as its own component, sister to main el, but due to the pos abs of the background blob, moved it here */}
             <div className="header z-10 relative">
               <nav>
                 <Link href={"/"} className="z-10 absolute">
