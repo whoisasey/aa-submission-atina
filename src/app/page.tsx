@@ -43,6 +43,8 @@ const FeatureCard = ({
   </div>
 );
 
+const lorumDesc = "Suspendisse nec turpis quis egestas sit augue. Pellentesque habitant morbi tristique senectus.";
+
 const Home = () => {
   const [email, setEmail] = useState("");
 
@@ -59,22 +61,22 @@ const Home = () => {
     {
       src: feature1,
       title: "Discover",
-      description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, quas.",
+      description: lorumDesc,
     },
     {
       src: feature2,
       title: "Discover",
-      description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, quas.",
+      description: lorumDesc,
     },
     {
       src: feature3,
       title: "Discover",
-      description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, quas.",
+      description: lorumDesc,
     },
     {
       src: feature4,
       title: "Discover",
-      description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, quas.",
+      description: lorumDesc,
     },
   ];
 
@@ -112,8 +114,8 @@ const Home = () => {
       <section className="flex flex-col justify-center items-center md:w-4/5 lg:w-1/2 text-center mx-auto mt-12 mb-20 z-10">
         <h1 className="font-bold text-5xl">Startup Landing Page</h1>
         <p className="my-8">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos laudantium, error fugiat doloremque excepturi
-          officia!
+          Lorem ipsum dolor sit amet, praesent sed ligula sit amet scelerisque, iterdum et malesuada fames ac ante ipsum
+          primis.
         </p>
         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row w-full justify-center">
           <label htmlFor="email">
