@@ -3,12 +3,8 @@ import "./globals.scss";
 import { Lato, Roboto } from "next/font/google";
 
 import Footer from "@/app/Components/Footer";
-// import Header from "@/app/Components/Header";
-import Image from "next/image";
-import Link from "next/link";
+import Header from "@/app/Components/Header";
 import type { Metadata } from "next";
-import background1 from "@/assets/background.svg";
-import logo from "@/assets/logo.svg";
 
 const robotoSans = Roboto({
   weight: ["300", "400", "500"],
@@ -35,21 +31,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${robotoSans.variable}  ${latoSans.variable} antialiased`}>
-        <div className="md:shadow-slate-200/50 md:shadow-xl bg-white">
-          {/* i originally had <Header/> as its own component, sister to <main>, but due to the pos abs of the background blob, i removed the Header and created a div with class of header, since semantically <header> wouldn't go inside <main> .. not sure if this is semantically correct either*/}
-          <main className="mb-20">
-            <div className="header z-10 relative">
-              <nav>
-                <Link href={"/"} className="z-10 absolute">
-                  <Image src={logo} alt="Agency Analytics logo" />
-                </Link>
-                <div className="absolute background">
-                  <Image src={background1} alt="" />
-                </div>
-              </nav>
-            </div>
-            {children}
-          </main>
+        <div className="md:shadow-slate-200/50 md:shadow-xl bg-white overflow-x-hidden">
+          <Header />
+          <main className="mb-20">{children}</main>
           <Footer />
         </div>
       </body>
