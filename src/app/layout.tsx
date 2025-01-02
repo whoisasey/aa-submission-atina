@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${robotoSans.variable}  ${latoSans.variable} antialiased`}>
-        <div className="md:shadow-slate-200/50 md:shadow-xl bg-white">
+        <div className="md:shadow-slate-200/50 md:shadow-xl bg-white overflow-x-hidden">
           <Header />
           <main className="mb-20">{children}</main>
           <Footer />
