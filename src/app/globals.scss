@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 // variables
+$xxl: 1440px;
 $lg: 1024px;
 $md: 768px;
 $sm: 540px;
@@ -13,7 +14,7 @@ $white: rgb(246 248 250);
 $grey: #f6f8fa;
 $bodyTextColor: rgb(91 111 130);
 $headerColor: rgb(32 43 54);
-$button: rgb(33 124 238);
+$button: #1978ed;
 
 body {
   color: $bodyTextColor;
@@ -59,8 +60,8 @@ main {
 }
 
 button {
-  background: rgb(33, 124, 238);
-  background: linear-gradient(120deg, rgba(33, 124, 238, 1) 0%, rgba(67, 142, 235, 1) 100%);
+  background: $button;
+  background: linear-gradient(120deg, rgba($button, 1) 0%, rgba(#428ef0, 1) 100%);
 }
 
 .background {
@@ -82,6 +83,14 @@ button {
   }
 
   @media (min-width: $md) {
+    //   right: -80%;
+    // }
+
+    // @media (min-width: $lg) {
+    //   right: -90%;
+    // }
+
+    // @media (min-width: $xxl) {
     right: -50%;
   }
 }
