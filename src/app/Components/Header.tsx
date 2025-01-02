@@ -5,7 +5,7 @@ import logo from "@/assets/logo.svg";
 
 const Header = () => {
   return (
-    <header className="header z-10 relative">
+    <header className="z-10 relative">
       <nav>
         <Link href={"/"} className="z-10 absolute">
           <Image src={logo} alt="Agency Analytics logo" />
