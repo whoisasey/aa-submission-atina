@@ -72,27 +72,24 @@ button {
 }
 
 .background {
+  // based on the size of the image when rendered. i was noticing that when trying to change the position, the size was changing. adding the w x h here helped with keeping the same size of the iamge
+  width: 1480px;
+  height: 650px;
   top: 0;
   z-index: -10;
-
-  @media (min-width: $xxs) {
-    right: -250vw;
-  }
+  right: -250vw;
 
   @media (min-width: $sm) {
-    right: -110%;
-  }
-  @media (min-width: $md) {
-    top: -5vh;
-    right: calc(-80vw);
+    right: -180%;
   }
 
-  @media (min-width: $lg) {
-    top: 0;
-    right: calc(-50vw - 30%);
+  @media (min-width: $md) {
+    top: -5vh;
+    right: -80vw;
   }
 
   @media (min-width: $xxl) {
+    top: 0;
     right: -50vw;
   }
 }
