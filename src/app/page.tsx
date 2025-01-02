@@ -111,9 +111,9 @@ const Home = () => {
   return (
     <div className="flex flex-col justify-center items-center relative lg:mt-16 w-11/12 m-auto sm:w-auto">
       {/* Header/Hero Section */}
-      <section className="flex flex-col justify-center items-center md:w-4/5 lg:w-1/2 text-center mx-auto mt-12 mb-20 z-10">
-        <h1 className="font-bold text-5xl">Startup Landing Page</h1>
-        <p className="my-8">
+      <section className="flex flex-col justify-center items-center md:w-4/5 xl:w-5/12 text-center mx-auto mt-12 mb-20 z-10">
+        <h1 className="font-medium text-5xl">Startup Landing Page</h1>
+        <p className="my-8 text-1xl">
           Lorem ipsum dolor sit amet, praesent sed ligula sit amet scelerisque, iterdum et malesuada fames ac ante ipsum
           primis.
         </p>
@@ -122,7 +122,7 @@ const Home = () => {
             <input
               type="email"
               id="email"
-              className="border-2 p-3 w-full rounded sm:w-80"
+              className="border-2 p-3 w-full rounded"
               placeholder="Your email address..."
               onChange={(e) => setEmail(e.target.value)}
               required
