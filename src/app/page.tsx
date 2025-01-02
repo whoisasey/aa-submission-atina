@@ -151,7 +151,7 @@ const Home = () => {
 
       {/* Feature Section */}
       <section>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-3/4 lg:w-2/3 mx-auto my-8 mt-32 z-10 sticky">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-3/4 lg:w-1/2 mx-auto my-8 mt-32 z-10 sticky">
           {features.map((feature, idx) => (
             <FeatureCard
               key={idx}
